@@ -1,4 +1,4 @@
-package com.reactnativebase;
+package com.targetmvd;
 
 import com.reactnativenavigation.controllers.SplashActivity;
 
