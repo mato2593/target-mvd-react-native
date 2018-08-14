@@ -5,15 +5,15 @@ import styles from './styles';
 
 const Input = ({ input: { onChange, ...restInput }, password = false, label, meta: { touched, error } }) => (
   <View>
-    {label && <Text>{label}</Text>}
+    {label && <Text style={styles.label}>{label.toUpperCase()}</Text>}
     <View>
       <TextInput
-        style={styles.input}
+        style={error ? styles.inputError : styles.input}
         onChangeText={onChange}
         secureTextEntry={password}
         {...restInput}
       />
-      {touched && error && <Text>{error}</Text>}
+      <Text style={styles.errorLabel}>{(touched && error) ? error : ''}</Text>
     </View>
   </View>
 );
