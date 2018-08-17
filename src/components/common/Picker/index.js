@@ -12,7 +12,7 @@ const CustomPicker = ({ input: { onChange, ...restInput }, label, options, meta:
         items={options}
         placeholder={{
           label: 'SELECT YOUR GENDER',
-          value: ''
+          value: null
         }}
         onValueChange={onChange}
         {...restInput}

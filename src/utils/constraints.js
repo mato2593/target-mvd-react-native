@@ -33,7 +33,8 @@ export const signUp = {
   gender: {
     inclusion: {
       within: { male: 'male', female: 'female', other: 'other' },
-    }
+    },
+    presence: true
   }
 };
 
