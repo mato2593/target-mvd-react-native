@@ -5,13 +5,14 @@ const baseLabel = {
   textAlign: 'center',
 };
 
-const baseInput = {
+const basePicker = {
   width: 230,
   height: 40,
   borderStyle: 'solid',
   borderWidth: 1,
   padding: 5,
-  fontWeight: 'bold',
+  textAlign: 'center',
+  fontWeight: 'bold'
 };
 
 const tomatoe = 'rgb(233, 40, 40)';
@@ -24,12 +25,15 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     fontSize: 16,
   },
-  input: {
-    ...baseInput,
+  picker: {
+    ...basePicker,
   },
-  inputError: {
-    ...baseInput,
+  pickerError: {
+    ...basePicker,
     borderColor: tomatoe,
+  },
+  pickerItem: {
+    fontSize: 14
   },
   errorLabel: {
     ...baseLabel,

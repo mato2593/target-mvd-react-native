@@ -3685,6 +3685,10 @@ lodash.cond@^4.3.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.cond/-/lodash.cond-4.5.2.tgz#f471a1da486be60f6ab955d17115523dd1d255d5"
 
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
 lodash.pad@^4.1.0:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/lodash.pad/-/lodash.pad-4.5.1.tgz#4330949a833a7c8da22cc20f6a26c4d59debba70"
@@ -4607,6 +4611,12 @@ react-native-navigation@1.1.440:
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.440.tgz#61b6f836b5bdd78c5de6dd7f4d05067f88a7ce1d"
   dependencies:
     lodash "4.x.x"
+
+react-native-picker-select@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-picker-select/-/react-native-picker-select-4.2.0.tgz#74d8a6d632ee65f5919cdd946d58b0ee1232b53f"
+  dependencies:
+    lodash.isequal "^4.5.0"
 
 react-native@0.55.3:
   version "0.55.3"

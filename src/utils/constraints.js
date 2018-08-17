@@ -31,7 +31,9 @@ export const signUp = {
     equality: 'password'
   },
   gender: {
-    presence: true
+    inclusion: {
+      within: { male: 'male', female: 'female', other: 'other' },
+    }
   }
 };
 
