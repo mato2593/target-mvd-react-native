@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const baseLabel = {
-  height: 20,
+  height: 15,
   textAlign: 'center',
+  fontWeight: 'bold'
 };
 
 const basePicker = {
@@ -20,10 +21,9 @@ const tomatoe = 'rgb(233, 40, 40)';
 const styles = StyleSheet.create({
   label: {
     ...baseLabel,
-    marginTop: 5,
-    marginBottom: 5,
+    marginBottom: 3,
     letterSpacing: 2,
-    fontSize: 16,
+    fontSize: 12,
   },
   picker: {
     ...basePicker,
@@ -38,9 +38,8 @@ const styles = StyleSheet.create({
   errorLabel: {
     ...baseLabel,
     color: tomatoe,
-    marginTop: 5,
+    marginTop: 3,
     fontSize: 10,
-    fontWeight: 'bold',
   }
 });
 
