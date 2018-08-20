@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, TextInput, Text } from 'react-native';
 import styles from './styles';
 
-const Input = ({ input: { onChange, ...restInput }, placeholder = '', password = false, label, meta: { touched, error } }) => (
+const Input = ({ input: { onChange, ...restInput }, placeholder = '', autoCapitalize = 'none', password = false, keyboardType = 'default', label, meta: { touched, error } }) => (
   <View>
     {label && <Text style={styles.label}>{label.toUpperCase()}</Text>}
     <View>
@@ -12,6 +12,8 @@ const Input = ({ input: { onChange, ...restInput }, placeholder = '', password =
         onChangeText={onChange}
         secureTextEntry={password}
         placeholder={placeholder}
+        keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
         {...restInput}
       />
       <Text style={styles.errorLabel}>{(touched && error) ? error : ''}</Text>
@@ -26,7 +28,9 @@ Input.propTypes = {
   label: string,
   meta: object,
   password: bool,
-  placeholder: string
+  placeholder: string,
+  keyboardType: string,
+  autoCapitalize: string
 };
 
 export default Input;

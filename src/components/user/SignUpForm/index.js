@@ -35,6 +35,7 @@ const SignUpForm = ({ handleSubmit, error }) => (
       name="email"
       label="Email"
       component={Input}
+      keyboardType="email-address"
     />
     <Field
       name="password"
