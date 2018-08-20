@@ -4606,13 +4606,24 @@ react-native-config@^0.11.5:
   version "0.11.5"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.11.5.tgz#516cb7b6ec437c7739236ca075971db3aabdcb95"
 
+react-native-iphone-x-helper@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.0.3.tgz#7a2f1e0574e899a0f1d426e6167fd98990083214"
+
+react-native-keyboard-aware-scroll-view@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.7.0.tgz#70cf2c53b3610c210421e1a70653d9c03cf101d6"
+  dependencies:
+    prop-types "^15.6.0"
+    react-native-iphone-x-helper "^1.0.1"
+
 react-native-navigation@1.1.440:
   version "1.1.440"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.440.tgz#61b6f836b5bdd78c5de6dd7f4d05067f88a7ce1d"
   dependencies:
     lodash "4.x.x"
 
-react-native-picker-select@4.2.0:
+react-native-picker-select@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-native-picker-select/-/react-native-picker-select-4.2.0.tgz#74d8a6d632ee65f5919cdd946d58b0ee1232b53f"
   dependencies:

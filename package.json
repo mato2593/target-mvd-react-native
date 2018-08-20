@@ -25,7 +25,8 @@
 		"redux-react-native-session": "^1.0.5",
 		"redux-thunk": "^2.2.0",
 		"validate.js": "^0.11.1",
-		"react-native-picker-select": "4.2.0"
+		"react-native-picker-select": "^4.2.0",
+		"react-native-keyboard-aware-scroll-view": "^0.7.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "^7.2.3",

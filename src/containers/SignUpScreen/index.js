@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, Image } from 'react-native';
+import { Text, Image } from 'react-native';
 import { connect } from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import SignUpForm from '../../components/user/SignUpForm';
 import styles from './styles';
 
 const SignUpScreen = ({ signUp }) => (
-  <View style={styles.container}>
+  <KeyboardAwareScrollView
+    contentContainerStyle={styles.container}
+    resetScrollToCoords={{ x: 0, y: 0 }}
+  >
     <Image
       style={styles.image}
       source={require('../../assets/images/background.png')}
@@ -15,7 +19,7 @@ const SignUpScreen = ({ signUp }) => (
     />
     <Text style={styles.title}>TARGET MVD</Text>
     <SignUpForm onSubmit={user => signUp(user.toJS())} />
-  </View>
+  </KeyboardAwareScrollView>
 );
 
 const { func } = PropTypes;
