@@ -11,15 +11,15 @@ import CustomPicker from '../../common/Picker';
 const genderOptions = [
   {
     label: 'MALE',
-    value: 'MALE'
+    value: 'male'
   },
   {
     label: 'FEMALE',
-    value: 'FEMALE'
+    value: 'female'
   },
   {
     label: 'OTHER',
-    value: 'OTHER'
+    value: 'other'
   }
 ];
 
@@ -27,7 +27,7 @@ const SignUpForm = ({ handleSubmit, error }) => (
   <View style={styles.signUp} onSubmit={handleSubmit}>
     {error && <Text>{error}</Text>}
     <Field
-      name="name"
+      name="username"
       label="Name"
       component={Input}
     />
@@ -42,7 +42,7 @@ const SignUpForm = ({ handleSubmit, error }) => (
       label="Password"
       component={Input}
       password
-      placeholder="MIN. 6 CHARACTERS LONG"
+      placeholder="MIN. 8 CHARACTERS LONG"
     />
     <Field
       name="passwordConfirmation"

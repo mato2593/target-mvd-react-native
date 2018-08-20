@@ -11,7 +11,7 @@ export const login = {
 };
 
 export const signUp = {
-  name: {
+  username: {
     length: {
       minimum: 3,
       message: 'Name must contain at least 3 characters'
@@ -30,11 +30,11 @@ export const signUp = {
   },
   password: {
     length: {
-      minimum: 6,
-      message: 'Password must contain at least 6 characters'
+      minimum: 8,
+      message: 'Password must contain at least 8 characters'
     },
     presence: {
-      message: 'Password must contain at least 6 characters'
+      message: 'Password must contain at least 8 characters'
     }
   },
   passwordConfirmation: {
@@ -45,7 +45,7 @@ export const signUp = {
   },
   gender: {
     inclusion: {
-      within: ['MALE', 'FEMALE', 'OTHER']
+      within: ['male', 'female', 'other']
     },
     presence: {
       message: 'You forgot to select your gender'

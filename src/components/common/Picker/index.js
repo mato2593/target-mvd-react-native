@@ -4,7 +4,7 @@ import { View, Text, TextInput } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './styles';
 
-const CustomPicker = ({ input: { onChange, ...restInput }, label, options, meta: { touched, error } }) => (
+const CustomPicker = ({ input: { onChange, value, ...restInput }, label, options, meta: { touched, error } }) => (
   <View>
     {label && <Text style={styles.label}>{label.toUpperCase()}</Text>}
     <View>
@@ -20,6 +20,7 @@ const CustomPicker = ({ input: { onChange, ...restInput }, label, options, meta:
         <TextInput
           style={(touched && error) ? styles.pickerError : styles.picker}
           placeholder={'SELECT YOUR GENDER'}
+          value={value.toUpperCase()}
           {...restInput}
         />
       </RNPickerSelect>
