@@ -72,5 +72,5 @@ SignUpForm.propTypes = {
 
 export default reduxForm({
   form: 'signUp',
-  validate: constraints.validations(constraints.signUp)
+  validate: constraints.validations(constraints.signUp, { fullMessages: false })
 })(SignUpForm);

@@ -13,30 +13,45 @@ export const login = {
 export const signUp = {
   name: {
     length: {
-      minimum: 3
+      minimum: 3,
+      message: 'Name must contain at least 3 characters'
     },
-    presence: true
+    presence: {
+      message: 'You forgot to put your name'
+    }
   },
   email: {
-    presence: true,
-    email: true
+    presence: {
+      message: 'Email can\'t be blank'
+    },
+    email: {
+      message: 'Oops! This email is not valid'
+    }
   },
   password: {
     length: {
-      minimum: 6
+      minimum: 6,
+      message: 'Password must contain at least 6 characters'
     },
-    presence: true
+    presence: {
+      message: 'Password must contain at least 6 characters'
+    }
   },
   passwordConfirmation: {
-    equality: 'password'
+    equality: {
+      attribute: 'password',
+      message: 'Passwords don\'t match'
+    }
   },
   gender: {
     inclusion: {
-      within: { male: 'male', female: 'female', other: 'other' },
+      within: ['MALE', 'FEMALE', 'OTHER']
     },
-    presence: true
+    presence: {
+      message: 'You forgot to select your gender'
+    }
   }
 };
 
-export const validations = constraints =>
-  data => validate(data.toJS(), constraints) || {};
+export const validations = (constraints, props = {}) =>
+  data => validate(data.toJS(), constraints, props) || {};
