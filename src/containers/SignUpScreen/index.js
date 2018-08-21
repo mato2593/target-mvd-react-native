@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import SignUpForm from '../../components/user/SignUpForm';
+import { signUp } from '../../actions/userActions';
 import styles from './styles';
 
 const SignUpScreen = ({ signUp }) => (
@@ -25,7 +26,7 @@ const SignUpScreen = ({ signUp }) => (
 const { func } = PropTypes;
 
 SignUpScreen.propTypes = {
-  signUp: func
+  signUp: func.isRequired
 };
 
 SignUpScreen.navigationOptions = {
@@ -36,4 +37,8 @@ SignUpScreen.navigatorStyle = {
   navBarHidden: true
 };
 
-export default connect(null, null)(SignUpScreen);
+const mapDispatch = dispatch => ({
+  signUp: user => dispatch(signUp(user))
+});
+
+export default connect(null, mapDispatch)(SignUpScreen);
