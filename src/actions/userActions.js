@@ -16,16 +16,26 @@ export const logoutSuccess = () => ({
   type: types.LOGOUT_SUCCESS
 });
 
+export const toggleLoading = () => ({
+  type: types.TOGGLE_LOADING
+});
+
 export const signUp = user =>
-  dispatch =>
-    userApi.signUp({ user }).then((response) => {
+  (dispatch) => {
+    dispatch(toggleLoading());
+    return userApi.signUp({ user }).then((response) => {
       sessionService.saveUser(response)
-        .then(() => dispatch(signUpSuccess()));
+        .then(() => {
+          dispatch(toggleLoading());
+          dispatch(signUpSuccess());
+        });
     }).catch((error) => {
+      dispatch(toggleLoading());
       throw new SubmissionError({
-        _error: error.error
+        email: error.errors.email ? error.errors.fullMessages[0] : null
       });
     });
+  };
 
 export const login = user =>
   dispatch =>

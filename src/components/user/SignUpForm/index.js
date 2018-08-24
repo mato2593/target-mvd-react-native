@@ -23,9 +23,8 @@ const genderOptions = [
   }
 ];
 
-const SignUpForm = ({ handleSubmit, error }) => (
+const SignUpForm = ({ handleSubmit }) => (
   <View style={styles.signUp} onSubmit={handleSubmit}>
-    {error && <Text>{error}</Text>}
     <Field
       name="username"
       label="Name"
@@ -64,11 +63,10 @@ const SignUpForm = ({ handleSubmit, error }) => (
   </View>
 );
 
-const { func, string } = PropTypes;
+const { func } = PropTypes;
 
 SignUpForm.propTypes = {
   handleSubmit: func.isRequired,
-  error: string
 };
 
 export default reduxForm({
