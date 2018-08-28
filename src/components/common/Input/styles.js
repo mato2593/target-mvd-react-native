@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import * as colors from '../../../constants/colors';
 
 const baseLabel = {
   height: 15,
@@ -7,33 +8,37 @@ const baseLabel = {
 };
 
 const baseInput = {
-  width: 230,
-  height: 40,
+  width: '67%',
+  height: 'auto',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  paddingVertical: 12,
+  paddingHorizontal: 5,
   borderStyle: 'solid',
   borderWidth: 1,
-  padding: 5,
-  fontWeight: 'bold',
+  fontWeight: 'bold'
 };
 
-const tomatoe = 'rgb(233, 40, 40)';
-
 const styles = StyleSheet.create({
+  inputContainer: {
+    width: '100%'
+  },
   label: {
     ...baseLabel,
     marginBottom: 3,
     letterSpacing: 2,
-    fontSize: 12,
+    fontSize: 12
   },
   input: {
-    ...baseInput,
+    ...baseInput
   },
   inputError: {
     ...baseInput,
-    borderColor: tomatoe,
+    borderColor: colors.tomatoe
   },
   errorLabel: {
     ...baseLabel,
-    color: tomatoe,
+    color: colors.tomatoe,
     fontSize: 10,
     marginTop: 3
   }

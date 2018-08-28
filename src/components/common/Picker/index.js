@@ -1,11 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, object, array } from 'prop-types';
 import { View, Text, TextInput } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from './styles';
 
-const CustomPicker = ({ input: { onChange, value, ...restInput }, label, options, meta: { touched, error } }) => (
-  <View>
+const CustomPicker = ({
+  input: { onChange, value, ...restInput },
+  label,
+  options,
+  meta: { touched, error }
+}) => (
+  <View style={styles.pickerContainer}>
     {label && <Text style={styles.label}>{label.toUpperCase()}</Text>}
     <View>
       <RNPickerSelect
@@ -28,8 +33,6 @@ const CustomPicker = ({ input: { onChange, value, ...restInput }, label, options
     </View>
   </View>
 );
-
-const { string, object, array } = PropTypes;
 
 CustomPicker.propTypes = {
   input: object.isRequired,

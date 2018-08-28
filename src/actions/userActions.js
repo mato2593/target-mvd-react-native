@@ -26,7 +26,6 @@ export const signUp = user =>
     return userApi.signUp({ user }).then((response) => {
       sessionService.saveUser(response)
         .then(() => {
-          dispatch(toggleLoading());
           dispatch(signUpSuccess());
         });
     }).catch((error) => {

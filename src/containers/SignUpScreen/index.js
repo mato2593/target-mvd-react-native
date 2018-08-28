@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func, bool } from 'prop-types';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { Text, Image } from 'react-native';
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import SignUpForm from '../../components/user/SignUpForm';
 import { signUp } from '../../actions/userActions';
 import styles from './styles';
+import backgroundImage from '../../assets/images/background.png';
 
 const SignUpScreen = ({ signUp, loading = false }) => (
   <KeyboardAwareScrollView
@@ -17,15 +18,13 @@ const SignUpScreen = ({ signUp, loading = false }) => (
     <Spinner visible={loading} />
     <Image
       style={styles.image}
-      source={require('../../assets/images/background.png')}
-      resizeMode={'stretch'}
+      source={backgroundImage}
+      resizeMode="stretch"
     />
     <Text style={styles.title}>TARGET MVD</Text>
     <SignUpForm onSubmit={signUp} />
   </KeyboardAwareScrollView>
 );
-
-const { func, bool } = PropTypes;
 
 SignUpScreen.propTypes = {
   signUp: func.isRequired,

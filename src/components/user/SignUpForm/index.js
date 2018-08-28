@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
 import { View, Text, TouchableHighlight } from 'react-native';
 
@@ -7,21 +7,7 @@ import Input from '../../common/Input';
 import * as constraints from '../../../utils/constraints';
 import styles from './styles';
 import CustomPicker from '../../common/Picker';
-
-const genderOptions = [
-  {
-    label: 'MALE',
-    value: 'male'
-  },
-  {
-    label: 'FEMALE',
-    value: 'female'
-  },
-  {
-    label: 'OTHER',
-    value: 'other'
-  }
-];
+import * as constants from '../../../constants/constants';
 
 const SignUpForm = ({ handleSubmit }) => (
   <View style={styles.signUp} onSubmit={handleSubmit}>
@@ -53,7 +39,7 @@ const SignUpForm = ({ handleSubmit }) => (
       name="gender"
       label="Gender"
       component={CustomPicker}
-      options={genderOptions}
+      options={constants.GENDER_OPTIONS}
     />
     <TouchableHighlight onPress={handleSubmit} underlayColor="white">
       <View style={styles.button}>
@@ -62,8 +48,6 @@ const SignUpForm = ({ handleSubmit }) => (
     </TouchableHighlight>
   </View>
 );
-
-const { func } = PropTypes;
 
 SignUpForm.propTypes = {
   handleSubmit: func.isRequired,

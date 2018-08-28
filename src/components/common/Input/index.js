@@ -1,10 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, object, bool } from 'prop-types';
 import { View, TextInput, Text } from 'react-native';
 import styles from './styles';
 
-const Input = ({ input: { onChange, ...restInput }, placeholder = '', autoCapitalize = 'none', password = false, keyboardType = 'default', label, meta: { touched, error } }) => (
-  <View>
+const Input = ({
+  input: { onChange, ...restInput },
+  placeholder = '',
+  autoCapitalize = 'none',
+  password = false,
+  keyboardType = 'default',
+  label, meta: { touched, error }
+}) => (
+  <View style={styles.inputContainer}>
     {label && <Text style={styles.label}>{label.toUpperCase()}</Text>}
     <View>
       <TextInput
@@ -20,8 +27,6 @@ const Input = ({ input: { onChange, ...restInput }, placeholder = '', autoCapita
     </View>
   </View>
 );
-
-const { string, object, bool } = PropTypes;
 
 Input.propTypes = {
   input: object.isRequired,

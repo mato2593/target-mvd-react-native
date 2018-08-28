@@ -3,15 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: undefined,
-    width: undefined,
+    alignItems: 'center'
   },
   image: {
     position: 'absolute',
     top: -30,
-    width: '100%',
+    width: '100%'
   },
   title: {
     position: 'relative',
@@ -20,7 +17,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 35,
-    fontWeight: '800',
+    fontWeight: 'bold',
     letterSpacing: 5
   }
 });

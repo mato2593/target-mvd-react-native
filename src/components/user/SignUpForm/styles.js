@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   signUp: {
-    flex: 1,
-    alignItems: 'center',
-    width: 230
+    width: '100%',
+    height: 'auto',
+    alignItems: 'center'
   },
   button: {
     marginTop: 10,
