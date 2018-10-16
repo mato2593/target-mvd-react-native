@@ -1,30 +1,41 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, object, bool } from 'prop-types';
 import { View, TextInput, Text } from 'react-native';
 import styles from './styles';
 
-const Input = ({ input: { onChange, ...restInput }, password = false, label, meta: { touched, error } }) => (
-  <View>
-    {label && <Text>{label}</Text>}
+const Input = ({
+  input: { onChange, ...restInput },
+  placeholder = '',
+  autoCapitalize = 'none',
+  password = false,
+  keyboardType = 'default',
+  label, meta: { touched, error }
+}) => (
+  <View style={styles.inputContainer}>
+    {label && <Text style={styles.label}>{label.toUpperCase()}</Text>}
     <View>
       <TextInput
-        style={styles.input}
+        style={(touched && error) ? styles.inputError : styles.input}
         onChangeText={onChange}
         secureTextEntry={password}
+        placeholder={placeholder}
+        keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
         {...restInput}
       />
-      {touched && error && <Text>{error}</Text>}
+      <Text style={styles.errorLabel}>{(touched && error) ? error : ''}</Text>
     </View>
   </View>
 );
-
-const { string, object, bool } = PropTypes;
 
 Input.propTypes = {
   input: object.isRequired,
   label: string,
   meta: object,
-  password: bool
+  password: bool,
+  placeholder: string,
+  keyboardType: string,
+  autoCapitalize: string
 };
 
 export default Input;

@@ -7,7 +7,7 @@ const baseLabel = {
   fontWeight: 'bold'
 };
 
-const baseInput = {
+const basePicker = {
   width: '67%',
   height: 'auto',
   marginLeft: 'auto',
@@ -16,11 +16,12 @@ const baseInput = {
   paddingHorizontal: 5,
   borderStyle: 'solid',
   borderWidth: 1,
+  textAlign: 'center',
   fontWeight: 'bold'
 };
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  pickerContainer: {
     width: '100%'
   },
   label: {
@@ -29,18 +30,21 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     fontSize: 12
   },
-  input: {
-    ...baseInput
+  picker: {
+    ...basePicker
   },
-  inputError: {
-    ...baseInput,
+  pickerError: {
+    ...basePicker,
     borderColor: colors.tomatoe
+  },
+  pickerItem: {
+    fontSize: 14
   },
   errorLabel: {
     ...baseLabel,
     color: colors.tomatoe,
-    fontSize: 10,
-    marginTop: 3
+    marginTop: 3,
+    fontSize: 10
   }
 });
 
