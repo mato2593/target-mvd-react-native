@@ -1,33 +1,50 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Text, View } from 'react-native';
+import { bool, func } from 'prop-types';
+import { Text, Image } from 'react-native';
 import { connect } from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import LoginForm from '../../components/user/LoginForm';
 import { login } from '../../actions/userActions';
 import styles from './styles';
+import backgroundImage from '../../assets/images/background.png';
 
-const LoginScreen = ({ login }) => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      LOGIN
-    </Text>
+const LoginScreen = ({ login, loading = false }) => (
+  <KeyboardAwareScrollView
+    contentContainerStyle={styles.container}
+    resetScrollToCoords={{ x: 0, y: 0 }}
+  >
+    <Spinner visible={loading} />
+    <Image
+      style={styles.image}
+      source={backgroundImage}
+      resizeMode="stretch"
+    />
+    <Text style={styles.title}>TARGET MVD</Text>
     <LoginForm onSubmit={user => login(user.toJS())} />
-  </View>
+  </KeyboardAwareScrollView>
 );
 
-const { func } = PropTypes;
-
 LoginScreen.propTypes = {
-  login: func.isRequired
+  login: func.isRequired,
+  loading: bool
 };
 
 LoginScreen.navigationOptions = {
   title: 'Log In'
 };
 
+LoginScreen.navigatorStyle = {
+  navBarHidden: true
+};
+
+const mapState = state => ({
+  loading: state.getIn(['user', 'loading'])
+});
+
 const mapDispatch = dispatch => ({
   login: user => dispatch(login(user))
 });
 
-export default connect(null, mapDispatch)(LoginScreen);
+export default connect(mapState, mapDispatch)(LoginScreen);

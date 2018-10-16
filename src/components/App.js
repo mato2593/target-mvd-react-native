@@ -50,7 +50,7 @@ class App {
     } else {
       Navigation.startSingleScreenApp({
         screen: {
-          screen: 'reactnativebase.SignUpScreen'
+          screen: 'reactnativebase.LoginScreen'
         }
       });
     }

@@ -2,15 +2,22 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    flex: 1,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
+  image: {
+    position: 'absolute',
+    top: 0,
+    width: '100%'
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    letterSpacing: 5,
+    marginBottom: 70,
+    marginTop: 75,
+    position: 'relative',
+    textAlign: 'center'
   },
 });
 
