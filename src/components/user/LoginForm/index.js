@@ -7,7 +7,7 @@ import Input from '../../common/Input';
 import * as constraints from '../../../utils/constraints';
 import styles from './styles';
 
-const LoginForm = ({ handleSubmit }) => (
+const LoginForm = ({ handleSubmit, error }) => (
   <View style={styles.login} onSubmit={handleSubmit}>
     <Field
       name="email"
@@ -20,6 +20,7 @@ const LoginForm = ({ handleSubmit }) => (
       component={Input}
       password
     />
+    {error && <Text style={styles.error}>{error}</Text>}
     <TouchableHighlight onPress={handleSubmit} underlayColor="white">
       <View style={styles.button}>
         <Text style={styles.buttonText}>SIGN IN</Text>
@@ -29,7 +30,8 @@ const LoginForm = ({ handleSubmit }) => (
 );
 
 LoginForm.propTypes = {
-  handleSubmit: func.isRequired
+  handleSubmit: func.isRequired,
+  error: string
 };
 
 export default reduxForm({

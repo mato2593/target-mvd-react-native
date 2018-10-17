@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { tomatoe } from '../../../constants/colors';
 
 const styles = StyleSheet.create({
   login: {
@@ -15,6 +16,12 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  error: {
+    color: tomatoe,
+    fontWeight: 'bold',
+    margin: 5,
     textAlign: 'center'
   }
 });
