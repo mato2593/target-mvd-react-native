@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
+import { bool, func, object } from 'prop-types';
 import { Text, Image, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -9,8 +9,9 @@ import LoginForm from '../../components/user/LoginForm';
 import { login } from '../../actions/userActions';
 import styles from './styles';
 import backgroundImage from '../../assets/images/background.png';
+import { SIGN_UP_SCREEN } from '../../screens';
 
-const LoginScreen = ({ login, loading = false }) => (
+const LoginScreen = ({ login, loading = false, navigator }) => (
   <KeyboardAwareScrollView
     contentContainerStyle={styles.container}
     resetScrollToCoords={{ x: 0, y: 0 }}
@@ -25,7 +26,7 @@ const LoginScreen = ({ login, loading = false }) => (
     <LoginForm onSubmit={user => login(user.toJS())} />
     <View style={styles.toSignUpContainer}>
       <View style={styles.separator} />
-      <TouchableHighlight style={styles.signUpButton} onPress={() => console.log('to sign up')} underlayColor="white">
+      <TouchableHighlight style={styles.signUpButton} onPress={() => navigator.showModal({ screen: SIGN_UP_SCREEN })} underlayColor="white">
         <Text style={styles.buttonText}>SIGN UP</Text>
       </TouchableHighlight>
     </View>
@@ -33,6 +34,7 @@ const LoginScreen = ({ login, loading = false }) => (
 );
 
 LoginScreen.propTypes = {
+  navigator: object.isRequired,
   login: func.isRequired,
   loading: bool
 };

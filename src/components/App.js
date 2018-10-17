@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import Immutable from 'immutable';
 import { sessionService } from 'redux-react-native-session';
 
-import registerScreens from '../screens';
+import registerScreens, { LOGIN_SCREEN, MAIN_SCREEN } from '../screens';
 import configureStore from '../store/configureStore';
 
 const store = configureStore(Immutable.Map());
@@ -39,7 +39,7 @@ class App {
   startAuthenticatedApp() {
     Navigation.startSingleScreenApp({
       screen: {
-        screen: 'reactnativebase.MainScreen'
+        screen: MAIN_SCREEN
       }
     });
   }
@@ -50,7 +50,7 @@ class App {
     } else {
       Navigation.startSingleScreenApp({
         screen: {
-          screen: 'reactnativebase.LoginScreen'
+          screen: LOGIN_SCREEN
         }
       });
     }
