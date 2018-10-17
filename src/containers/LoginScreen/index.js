@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
-import { Text, Image } from 'react-native';
+import { Text, Image, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -23,6 +23,12 @@ const LoginScreen = ({ login, loading = false }) => (
     />
     <Text style={styles.title}>TARGET MVD</Text>
     <LoginForm onSubmit={user => login(user.toJS())} />
+    <View style={styles.toSignUpContainer}>
+      <View style={styles.separator} />
+      <TouchableHighlight style={styles.signUpButton} onPress={() => console.log('to sign up')} underlayColor="white">
+        <Text style={styles.buttonText}>SIGN UP</Text>
+      </TouchableHighlight>
+    </View>
   </KeyboardAwareScrollView>
 );
 
