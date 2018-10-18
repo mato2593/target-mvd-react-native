@@ -11,7 +11,9 @@ export const userReducer = (state = initialState, action) => {
     case types.TOGGLE_LOADING:
       return state.set('loading', !state.get('loading'));
     case types.SIGN_UP_SUCCESS:
-      return state.get('loading', !state.get('loading', false));
+      return state.set('loading', false);
+    case types.LOGIN_SUCCESS:
+      return state.set('loading', false);
     default:
       return state;
   }

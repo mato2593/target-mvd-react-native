@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func, string } from 'prop-types';
 import { Field, reduxForm } from 'redux-form/immutable';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 
 import Input from '../../common/Input';
 import * as constraints from '../../../utils/constraints';
@@ -9,7 +9,6 @@ import styles from './styles';
 
 const LoginForm = ({ handleSubmit, error }) => (
   <View style={styles.login} onSubmit={handleSubmit}>
-    {error && <Text>{error}</Text>}
     <Field
       name="email"
       label="Email"
@@ -21,11 +20,14 @@ const LoginForm = ({ handleSubmit, error }) => (
       component={Input}
       password
     />
-    <Button title="LOGIN" onPress={handleSubmit} />
+    {error && <Text style={styles.error}>{error}</Text>}
+    <TouchableHighlight onPress={handleSubmit} underlayColor="white">
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>SIGN IN</Text>
+      </View>
+    </TouchableHighlight>
   </View>
 );
-
-const { func, string } = PropTypes;
 
 LoginForm.propTypes = {
   handleSubmit: func.isRequired,

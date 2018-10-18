@@ -37,15 +37,18 @@ export const signUp = user =>
   };
 
 export const login = user =>
-  dispatch =>
-    userApi.login({ user }).then((response) => {
-      sessionService.saveUser(response.user)
+  (dispatch) => {
+    dispatch(toggleLoading());
+    return userApi.login({ user }).then((response) => {
+      sessionService.saveUser(response)
         .then(() => dispatch(loginSuccess()));
-    }).catch((err) => {
+    }).catch((error) => {
+      dispatch(toggleLoading());
       throw new SubmissionError({
-        _error: err.error,
+        _error: error.errors[0],
       });
     });
+  };
 
 export const logout = () =>
   (dispatch) => {
